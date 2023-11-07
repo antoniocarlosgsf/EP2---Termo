@@ -1,4 +1,4 @@
-def inidica_posicao(sorteada, especulada):
+def indica_posicao(sorteada, especulada):
     if len(especulada) != len(sorteada):
         return []
     out = []
