@@ -30,14 +30,33 @@ novamente = 's'
 while novamente == 's':
     dados_jogo = inicializa(palavras_do_jogo)
     sorteada = dados_jogo['sorteada']
+    tentativas = 6
     print(dados_jogo)
     print(branca)
     print('Você tem {tentativas} tentativa (s)')
     palpite = input('Qual seu palpite')
     validacao = valida_palpite(palpite, 5)
+    while validacao != True:
+        print('Você tem {tentativas} tentativa (s)')
+        palpite = input('Qual seu palpite')
+        validacao = valida_palpite(palpite, 5)
     if validacao == True:
+        tentativas -= 1
         dados_jogo['especuladas'].append(palpite)
-        dados_posicoes = indica_posicao()
+        dados_posicoes = indica_posicao(sorteada, palpite)
+        print(' --- --- --- --- ---')
+        print('| {} | {} | {} | {} | {}')
+        print(' --- --- --- --- ---')
+        print('| {} | {} | {} | {} | {}')
+        print(' --- --- --- --- ---')
+        print('| {} | {} | {} | {} | {}')
+        print(' --- --- --- --- ---')
+        print('| {} | {} | {} | {} | {}')
+        print(' --- --- --- --- ---')
+        print('| {} | {} | {} | {} | {}')
+        print(' --- --- --- --- ---')
+        print('| {} | {} | {} | {} | {}')
+        print(' --- --- --- --- ---')
 
 
 
