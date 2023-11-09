@@ -25,6 +25,11 @@ def valida_palpite(string, tamanho_sorteada):
         return 'palavra desconhecida'
     else:
         return True
+    
+def formata_entrada(entrada):
+    out = entrada.strip()
+    out = out.lower()
+    return out
 
 
 
@@ -51,6 +56,8 @@ while novamente == 's':
             break
         print(f'Você tem {tentativas} tentativa (s)')
         palpite = input('Qual seu palpite? ')
+        palpite = formata_entrada(palpite)
+        print(palpite)
         validacao = valida_palpite(palpite, 5)
         while validacao == 'desistiu':
             certeza = input('Tem certeza que deseja desistir? [s/n] ')
@@ -64,8 +71,8 @@ while novamente == 's':
                 validacao = valida_palpite(palpite, 5)
         while validacao != True and validacao != 'desistiu':
             print(validacao)
-            print('Você tem {tentativas} tentativa (s)')
-            palpite = input('Qual seu palpite')
+            print(f'Você tem {tentativas} tentativa (s)')
+            palpite = input('Qual seu palpite? ')
             validacao = valida_palpite(palpite, 5)
         if validacao == True:
             dados_jogo['especuladas'].append(palpite)
