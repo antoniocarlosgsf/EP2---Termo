@@ -54,34 +54,31 @@ print()
 print('Níveis: Facíl (5 letras)\n        Médio (6 letras)\n        Difícil (7 letras)')
 print()
 
-perguntar_novamente = True
-while perguntar_novamente:
-    dificuldade = int(input('Com quantas letras deseja jogar? '))
-    if dificuldade == 5 or dificuldade == 6 or dificuldade == 7:
-        perguntar_novamente = False
-        print()
-        print('Sorteando uma palavra...')
-        print('Já tenho uma palavra! Tente adivinhá-la!')
-        print()
-        print()
-    else:
-        print('Resposta inválida')
-        print('Escolha entre 5, 6 ou 7')
-        print()
-
-palavras_do_jogo = filtra(palavras, 5)
-
-if dificuldade == 5:
-    #Iniciando o jogo
-    palavras_do_jogo = filtra(palavras, 5)
-    ganhou = False
-    perdeu = False
-    novamente = 's'
-    certeza = ''
-    #Jogo Rodando Inifinitamente até a decisão do jogador
-    while novamente == 's':
-        dados_jogo = inicializa(palavras_do_jogo)
-        sorteada = dados_jogo['sorteada']
+#Jogo Rodando Inifinitamente até a decisão do jogador
+novamente = 's'
+while novamente == 's':
+    perguntar_novamente = True
+    while perguntar_novamente:
+        dificuldade = int(input('Com quantas letras deseja jogar? '))
+        if dificuldade == 5 or dificuldade == 6 or dificuldade == 7:
+            perguntar_novamente = False
+            print()
+            print('Sorteando uma palavra...')
+            palavras_do_jogo = filtra(palavras, dificuldade)
+            dados_jogo = inicializa(palavras_do_jogo)
+            sorteada = dados_jogo['sorteada']
+            print('Já tenho uma palavra! Tente adivinhá-la!')
+            print()
+            print()
+        else:
+            print('Resposta inválida')
+            print('Escolha entre 5, 6 ou 7')
+            print()
+    if dificuldade == 5:
+        #Iniciando o jogo
+        ganhou = False
+        perdeu = False
+        certeza = ''
         tentativas = 6
         lista_colorida = ['     ', '     ', '     ', '     ', '     ', '     ']
         while True:
@@ -178,17 +175,11 @@ if dificuldade == 5:
             print()
             print('Até a próxima!')
 
-elif dificuldade == 6:
-    #Iniciando o jogo
-    palavras_do_jogo = filtra(palavras, 6)
-    ganhou = False
-    perdeu = False
-    novamente = 's'
-    certeza = ''
-    #Jogo Rodando Inifinitamente até a decisão do jogador
-    while novamente == 's':
-        dados_jogo = inicializa(palavras_do_jogo)
-        sorteada = dados_jogo['sorteada']
+    elif dificuldade == 6:
+        #Iniciando o jogo
+        ganhou = False
+        perdeu = False
+        certeza = ''
         tentativas = 7
         lista_colorida = ['      ', '      ', '      ', '      ', '      ', '      ', '      ']
         while True:
@@ -239,21 +230,20 @@ elif dificuldade == 6:
                 tentativas -= 1
                 #Printando a interface do jogo
                 print(' --- --- --- --- ---')
-                print(f'| {lista_colorida[0][0]} | {lista_colorida[0][1]} | {lista_colorida[0][2]} | {lista_colorida[0][3]} | {lista_colorida[0][4]} | {lista_colorida[0][5]} | {lista_colorida[0][6]} |')
+                print(f'| {lista_colorida[0][0]} | {lista_colorida[0][1]} | {lista_colorida[0][2]} | {lista_colorida[0][3]} | {lista_colorida[0][4]} | {lista_colorida[0][5]} |')
                 print(' --- --- --- --- --- ---')
-                print(f'| {lista_colorida[1][0]} | {lista_colorida[1][1]} | {lista_colorida[1][2]} | {lista_colorida[1][3]} | {lista_colorida[1][4]} | {lista_colorida[1][5]} | {lista_colorida[1][6]} |')
+                print(f'| {lista_colorida[1][0]} | {lista_colorida[1][1]} | {lista_colorida[1][2]} | {lista_colorida[1][3]} | {lista_colorida[1][4]} | {lista_colorida[1][5]} |')
                 print(' --- --- --- --- --- ---')
-                print(f'| {lista_colorida[2][0]} | {lista_colorida[2][1]} | {lista_colorida[2][2]} | {lista_colorida[2][3]} | {lista_colorida[2][4]} | {lista_colorida[2][5]} | {lista_colorida[2][6]} |')
+                print(f'| {lista_colorida[2][0]} | {lista_colorida[2][1]} | {lista_colorida[2][2]} | {lista_colorida[2][3]} | {lista_colorida[2][4]} | {lista_colorida[2][5]} |')
                 print(' --- --- --- --- --- ---')
-                print(f'| {lista_colorida[3][0]} | {lista_colorida[3][1]} | {lista_colorida[3][2]} | {lista_colorida[3][3]} | {lista_colorida[3][4]} | {lista_colorida[3][5]} | {lista_colorida[3][6]} |')
+                print(f'| {lista_colorida[3][0]} | {lista_colorida[3][1]} | {lista_colorida[3][2]} | {lista_colorida[3][3]} | {lista_colorida[3][4]} | {lista_colorida[3][5]} |')
                 print(' --- --- --- --- --- ---')
-                print(f'| {lista_colorida[4][0]} | {lista_colorida[4][1]} | {lista_colorida[4][2]} | {lista_colorida[4][3]} | {lista_colorida[4][4]} | {lista_colorida[4][5]} | {lista_colorida[4][6]} |')
+                print(f'| {lista_colorida[4][0]} | {lista_colorida[4][1]} | {lista_colorida[4][2]} | {lista_colorida[4][3]} | {lista_colorida[4][4]} | {lista_colorida[4][5]} |')
                 print(' --- --- --- --- --- ---')
-                print(f'| {lista_colorida[5][0]} | {lista_colorida[5][1]} | {lista_colorida[5][2]} | {lista_colorida[5][3]} | {lista_colorida[5][4]} | {lista_colorida[5][5]} | {lista_colorida[5][6]} |')
+                print(f'| {lista_colorida[5][0]} | {lista_colorida[5][1]} | {lista_colorida[5][2]} | {lista_colorida[5][3]} | {lista_colorida[5][4]} | {lista_colorida[5][5]} |')
                 print(' --- --- --- --- --- ---')
-                print(f'| {lista_colorida[6][0]} | {lista_colorida[6][1]} | {lista_colorida[6][2]} | {lista_colorida[6][3]} | {lista_colorida[6][4]} | {lista_colorida[6][5]} | {lista_colorida[6][6]} |')
+                print(f'| {lista_colorida[6][0]} | {lista_colorida[6][1]} | {lista_colorida[6][2]} | {lista_colorida[6][3]} | {lista_colorida[6][4]} | {lista_colorida[6][5]} |')
                 print(' --- --- --- --- --- ---')
-                print(f'| {lista_colorida[7][0]} | {lista_colorida[7][1]} | {lista_colorida[7][2]} | {lista_colorida[7][3]} | {lista_colorida[7][4]} | {lista_colorida[7][5]} | {lista_colorida[7][6]} |')
                 if palpite == sorteada:
                     tentativas_feitas = 7 - tentativas
                     if tentativas_feitas == 7:
@@ -292,17 +282,11 @@ elif dificuldade == 6:
             print()
             print('Até a próxima!')
 
-elif dificuldade == 7:
-        #Iniciando o jogo
-    palavras_do_jogo = filtra(palavras, 7)
-    ganhou = False
-    perdeu = False
-    novamente = 's'
-    certeza = ''
-    #Jogo Rodando Inifinitamente até a decisão do jogador
-    while novamente == 's':
-        dados_jogo = inicializa(palavras_do_jogo)
-        sorteada = dados_jogo['sorteada']
+    elif dificuldade == 7:
+            #Iniciando o jogo
+        ganhou = False
+        perdeu = False
+        certeza = ''
         tentativas = 8
         lista_colorida = ['       ', '       ', '       ', '       ', '       ', '       ', '       ']
         while True:
@@ -353,19 +337,21 @@ elif dificuldade == 7:
                 tentativas -= 1
                 #Printando a interface do jogo
                 print(' --- --- --- --- ---')
-                print(f'| {lista_colorida[0][0]} | {lista_colorida[0][1]} | {lista_colorida[0][2]} | {lista_colorida[0][3]} | {lista_colorida[0][4]} | {lista_colorida[0][5]} |')
+                print(f'| {lista_colorida[0][0]} | {lista_colorida[0][1]} | {lista_colorida[0][2]} | {lista_colorida[0][3]} | {lista_colorida[0][4]} | {lista_colorida[0][5]} | {lista_colorida[0][6]} |')
                 print(' --- --- --- --- --- ---')
-                print(f'| {lista_colorida[1][0]} | {lista_colorida[1][1]} | {lista_colorida[1][2]} | {lista_colorida[1][3]} | {lista_colorida[1][4]} | {lista_colorida[1][5]} |')
+                print(f'| {lista_colorida[1][0]} | {lista_colorida[1][1]} | {lista_colorida[1][2]} | {lista_colorida[1][3]} | {lista_colorida[1][4]} | {lista_colorida[1][5]} | {lista_colorida[1][6]} |')
                 print(' --- --- --- --- --- ---')
-                print(f'| {lista_colorida[2][0]} | {lista_colorida[2][1]} | {lista_colorida[2][2]} | {lista_colorida[2][3]} | {lista_colorida[2][4]} | {lista_colorida[2][5]} |')
+                print(f'| {lista_colorida[2][0]} | {lista_colorida[2][1]} | {lista_colorida[2][2]} | {lista_colorida[2][3]} | {lista_colorida[2][4]} | {lista_colorida[2][5]} | {lista_colorida[2][6]} |')
                 print(' --- --- --- --- --- ---')
-                print(f'| {lista_colorida[3][0]} | {lista_colorida[3][1]} | {lista_colorida[3][2]} | {lista_colorida[3][3]} | {lista_colorida[3][4]} | {lista_colorida[3][5]} |')
+                print(f'| {lista_colorida[3][0]} | {lista_colorida[3][1]} | {lista_colorida[3][2]} | {lista_colorida[3][3]} | {lista_colorida[3][4]} | {lista_colorida[3][5]} | {lista_colorida[3][6]} |')
                 print(' --- --- --- --- --- ---')
-                print(f'| {lista_colorida[4][0]} | {lista_colorida[4][1]} | {lista_colorida[4][2]} | {lista_colorida[4][3]} | {lista_colorida[4][4]} | {lista_colorida[4][5]} |')
+                print(f'| {lista_colorida[4][0]} | {lista_colorida[4][1]} | {lista_colorida[4][2]} | {lista_colorida[4][3]} | {lista_colorida[4][4]} | {lista_colorida[4][5]} | {lista_colorida[4][6]} |')
                 print(' --- --- --- --- --- ---')
-                print(f'| {lista_colorida[5][0]} | {lista_colorida[5][1]} | {lista_colorida[5][2]} | {lista_colorida[5][3]} | {lista_colorida[5][4]} | {lista_colorida[5][5]} |')
+                print(f'| {lista_colorida[5][0]} | {lista_colorida[5][1]} | {lista_colorida[5][2]} | {lista_colorida[5][3]} | {lista_colorida[5][4]} | {lista_colorida[5][5]} | {lista_colorida[5][6]} |')
                 print(' --- --- --- --- --- ---')
-                print(f'| {lista_colorida[6][0]} | {lista_colorida[6][1]} | {lista_colorida[6][2]} | {lista_colorida[6][3]} | {lista_colorida[6][4]} | {lista_colorida[6][5]} |')
+                print(f'| {lista_colorida[6][0]} | {lista_colorida[6][1]} | {lista_colorida[6][2]} | {lista_colorida[6][3]} | {lista_colorida[6][4]} | {lista_colorida[6][5]} | {lista_colorida[6][6]} |')
+                print(' --- --- --- --- --- ---')
+                print(f'| {lista_colorida[7][0]} | {lista_colorida[7][1]} | {lista_colorida[7][2]} | {lista_colorida[7][3]} | {lista_colorida[7][4]} | {lista_colorida[7][5]} | {lista_colorida[7][6]} |')
                 print(' --- --- --- --- --- ---')
                 if palpite == sorteada:
                     tentativas_feitas = 8 - tentativas
