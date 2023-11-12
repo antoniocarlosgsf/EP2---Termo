@@ -29,15 +29,18 @@ class ANSI():
 
 azul = ANSI.color_text(96) 
 amarela = ANSI.color_text(93) 
-escura = ANSI.color_text(90) 
+escura = ANSI.color_text(90)
+vermelha = ANSI.color_text(91)
+verde = ANSI.color_text(92)
+roxo = ANSI.color_text(95)
 reset = ANSI.color_text()
 
 #Interface inicial
-print(' =========================== ')
+print(f'{vermelha} =========================== ')
 print('|                           |')
 print('| Bem-Vindo ao Insper Termo |')
 print('|                           |')
-print(' =========================== ')
+print(f' =========================== {reset}')
 print()
 print('Comandos: desisto')
 print()
@@ -51,7 +54,7 @@ print(f'. {escura} cinza {reset}: a palavra não tem a letra.')
 print(' - Os acentos são ignorados;')
 print(' - As palavras podem possuir letras repetidas.')
 print()
-print('Níveis: Facíl (5 letras)\n        Médio (6 letras)\n        Difícil (7 letras)')
+print(f'Níveis{azul}: Facíl (5 letras)\n {amarela}       Médio (6 letras)\n  {vermelha}      Difícil (7 letras){reset}')
 print()
 
 #Jogo Rodando Inifinitamente até a decisão do jogador
